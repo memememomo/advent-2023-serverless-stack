@@ -1,35 +1,35 @@
-'use client';
+'use client'; // クライアントを使用します
 
-import { useEffect, useState } from 'react';
-import styles from './Page.module.css';
-import { getCount, updateCount } from './api';
+import { useEffect, useState } from 'react'; // reactからuseEffectとuseStateをインポートします
+import styles from './Page.module.css'; // スタイルをインポートします
+import { getCount, updateCount } from './api'; // apiからgetCountとupdateCountをインポートします
 
-export default function Page() {
-  const [count, setCount] = useState(0);
-  const [isLoading, setIsLoading] = useState(false);
+export default function Page() { // Page関数をエクスポートします
+  const [count, setCount] = useState(0); // countとsetCountのstateを設定します
+  const [isLoading, setIsLoading] = useState(false); // isLoadingとsetIsLoadingのstateを設定します
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      const data = await getCount();
-      setCount(data.count);
-      setIsLoading(false);
+  useEffect(() => { // useEffectを使用します
+    const fetchData = async () => { // fetchData関数を非同期で定義します
+      setIsLoading(true); // データ取得中にisLoadingをtrueに設定します
+      const data = await getCount(); // getCountからデータを取得します
+      setCount(data.count); // 取得したデータをsetCountで設定します
+      setIsLoading(false); // データ取得が完了したらisLoadingをfalseに設定します
     };
-    fetchData();
+    fetchData(); // fetchData関数を呼び出します
   }, []);
 
-  const onClick = async () => {
-    setIsLoading(true);
-    const data = await updateCount();
-    setCount(data.count);
-    setIsLoading(false);
+  const onClick = async () => { // onClick関数を非同期で定義します
+    setIsLoading(true); // データ更新中にisLoadingをtrueに設定します
+    const data = await updateCount(); // updateCountからデータを取得します
+    setCount(data.count); // 取得したデータをsetCountで設定します
+    setIsLoading(false); // データ更新が完了したらisLoadingをfalseに設定します
   };
 
   return (
-    <div className={styles.App}>
+    <div className={styles.App}> // Appクラスを持つdivを返します
       <>
-        {count > 0 && <p className={styles.paragraph}>You clicked me {count} times.</p>}
-        <button className={styles.button} onClick={onClick} disabled={isLoading}>Click Me!</button>
+        {count > 0 && <p className={styles.paragraph}>You clicked me {count} times.</p>} // countが0より大きい場合、クリック回数を表示します
+        <button className={styles.button} onClick={onClick} disabled={isLoading}>Click Me!</button> // ボタンを表示し、クリック時にonClick関数を呼び出します。isLoadingがtrueの場合、ボタンは無効化されます
       </>
     </div>
   );
