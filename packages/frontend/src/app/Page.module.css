@@ -1,0 +1,11 @@
+/* App.module.css */
+.App {
+    text-align: center;
+}
+.paragraph {
+    margin-top: 0;
+    font-size: 20px;
+}
+.button {
+    font-size: 48px;
+}
