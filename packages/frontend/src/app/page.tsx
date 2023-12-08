@@ -26,10 +26,10 @@ export default function Page() { // Page関数をエクスポートします
   };
 
   return (
-    <div className={styles.App}> // Appクラスを持つdivを返します
+    <div className={styles.App}> 
       <>
-        {count > 0 && <p className={styles.paragraph}>You clicked me {count} times.</p>} // countが0より大きい場合、クリック回数を表示します
-        <button className={styles.button} onClick={onClick} disabled={isLoading}>Click Me!</button> // ボタンを表示し、クリック時にonClick関数を呼び出します。isLoadingがtrueの場合、ボタンは無効化されます
+        {count > 0 && <p className={styles.paragraph}>You clicked me {count} times.</p>}
+        <button className={styles.button} onClick={onClick} disabled={isLoading}>Click Me!</button> 
       </>
     </div>
   );
